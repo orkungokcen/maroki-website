@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Maroki Yazılım",
-  description: "Logo Yazılım iş ortağı, özel yazılım geliştirme ve kurumsal çözümler.",
+  title: "Maroki Yazılım | ERP, Logo Entegrasyonu ve Özel Yazılım Çözümleri",
+  description:
+    "Maroki Yazılım, Logo Yazılım iş ortağı olarak ERP çözümleri, Logo entegrasyonu ve özel yazılım geliştirme hizmetleri sunar. İşinizi dijitalleştirin.",
   verification: {
     google: "nyoJzXapdv6kHhi1fW8zfVYasF535N4kk-ZMdJuinGo",
   },

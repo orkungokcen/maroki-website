@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Navbar from "./Navbar";
+
+export const metadata: Metadata = {
+  title: "Ana Sayfa | ERP, Logo Yazılım Entegrasyonu ve Özel Yazılım | Maroki Yazılım",
+  description:
+    "Maroki Yazılım olarak ERP çözümleri, Logo Yazılım entegrasyonu, e-Dönüşüm hizmetleri ve özel yazılım geliştirme çözümleri sunuyoruz.",
+};
 
 export default function Home() {
   return (
@@ -67,9 +74,7 @@ export default function Home() {
               {/* Grafik alanı */}
               <div className="mb-4 rounded-2xl border border-white/10 bg-[#0B1120] p-6">
                 <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-white">
-                    Operasyon Analizi
-                  </h3>
+                  <h3 className="text-lg font-semibold text-white">Operasyon Analizi</h3>
                   <span className="text-sm text-cyan-400">Bu Ay</span>
                 </div>
 

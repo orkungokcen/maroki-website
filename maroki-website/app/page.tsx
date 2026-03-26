@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "./Navbar";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Maroki Yazılım | ERP, Logo Yazılım Entegrasyonu ve Özel Yazılım Çözümleri",
@@ -56,7 +57,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sağ Alan - Dashboard */}
+          {/* Sağ Alan */}
           <div className="animate-[fadeUp_1.2s_ease-out]">
             <div className="relative rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md">
               <div className="mb-4 grid grid-cols-3 gap-4">
@@ -83,12 +84,12 @@ export default function Home() {
                 </div>
 
                 <div className="flex h-40 items-end gap-3">
-                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "45%" }}></div>
-                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "65%" }}></div>
-                  <div className="w-full rounded-t-xl bg-cyan-400/80" style={{ height: "85%" }}></div>
-                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "55%" }}></div>
-                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "72%" }}></div>
-                  <div className="w-full rounded-t-xl bg-cyan-400/80" style={{ height: "92%" }}></div>
+                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "45%" }} />
+                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "65%" }} />
+                  <div className="w-full rounded-t-xl bg-cyan-400/80" style={{ height: "85%" }} />
+                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "55%" }} />
+                  <div className="w-full rounded-t-xl bg-blue-500/70" style={{ height: "72%" }} />
+                  <div className="w-full rounded-t-xl bg-cyan-400/80" style={{ height: "92%" }} />
                 </div>
               </div>
 
@@ -195,12 +196,10 @@ export default function Home() {
                 className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition hover:scale-105 hover:border-cyan-400"
               >
                 <h3 className="mb-3 text-xl font-semibold text-white">{item}</h3>
-
                 <p className="text-sm text-gray-400">
                   İşletmeler için ERP süreçlerini güçlendiren, Logo Yazılım ile uyumlu,
                   ölçeklenebilir ve verimlilik odaklı kurumsal çözüm.
                 </p>
-
                 <button className="mt-6 text-sm font-semibold text-cyan-400 hover:underline">
                   Detayları İncele →
                 </button>
@@ -255,9 +254,7 @@ export default function Home() {
 
             <div className="rounded-3xl border border-white/10 bg-[#0B1120] p-6 shadow-xl">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-white">
-                  HEP Akaryakıt Otomasyon
-                </h3>
+                <h3 className="text-xl font-semibold text-white">HEP Akaryakıt Otomasyon</h3>
                 <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
                   Aktif Sistem
                 </span>
@@ -413,35 +410,7 @@ export default function Home() {
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
               <h3 className="mb-6 text-2xl font-semibold text-white">Demo / Teklif Talebi</h3>
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Ad Soyad"
-                  className="w-full rounded-xl border border-white/10 bg-[#0B1120] px-4 py-3 text-white outline-none placeholder:text-gray-500"
-                />
-                <input
-                  type="email"
-                  placeholder="E-posta"
-                  className="w-full rounded-xl border border-white/10 bg-[#0B1120] px-4 py-3 text-white outline-none placeholder:text-gray-500"
-                />
-                <input
-                  type="text"
-                  placeholder="Telefon"
-                  className="w-full rounded-xl border border-white/10 bg-[#0B1120] px-4 py-3 text-white outline-none placeholder:text-gray-500"
-                />
-                <textarea
-                  placeholder="Mesajınız"
-                  rows={5}
-                  className="w-full rounded-xl border border-white/10 bg-[#0B1120] px-4 py-3 text-white outline-none placeholder:text-gray-500"
-                ></textarea>
-
-                <button
-                  type="button"
-                  className="w-full rounded-2xl bg-blue-500 px-8 py-4 text-lg font-semibold transition hover:bg-blue-600"
-                >
-                  Gönder
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </section>

@@ -1,78 +1,67 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navItems = [
+  { label: "Ana Sayfa", href: "/" },
+  { label: "Çözümler", href: "/cozumler" },
+  { label: "Ürünler", href: "/urunler" },
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  { label: "İletişim", href: "/iletisim" },
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const pathname = usePathname();
 
   return (
-    <nav
-      className={`sticky top-0 z-50 w-full border-b border-white/10 bg-[#0B1120]/80 backdrop-blur-xl transition-all duration-300 ${
-        scrolled ? "h-20" : "h-24"
-      }`}
-    >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6">
-        <div className="flex items-center gap-4">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#3f4452]/95 backdrop-blur">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center gap-4">
           <Image
             src="/mylogo.png"
-            alt="Maroki Yazılım"
-            width={60}
+            alt="Maroki Yazılım Logo"
+            width={108}
             height={60}
+            className="h-auto w-[90px] md:w-[108px]"
             priority
-            className={`w-auto object-contain transition-all duration-300 hover:scale-105 ${
-              scrolled ? "h-12" : "h-14"
-            }`}
           />
-          <span
-            className={`font-bold text-white transition-all duration-300 ${
-              scrolled ? "text-xl" : "text-2xl"
-            }`}
-          >
+          <span className="text-2xl font-bold text-white md:text-3xl">
             Maroki Yazılım
           </span>
-        </div>
+        </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white">
-          <a href="#" className="relative group">
-            Ana Sayfa
-            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all group-hover:w-full"></span>
-          </a>
+        <nav className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
 
-          <a href="#" className="relative group">
-            Çözümler
-            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all group-hover:w-full"></span>
-          </a>
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-lg font-medium transition ${
+                  isActive
+                    ? "text-cyan-300"
+                    : "text-white hover:text-cyan-300"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-          <a href="#" className="relative group">
-            Ürünler
-            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all group-hover:w-full"></span>
-          </a>
-
-          <a href="#" className="relative group">
-            Hakkımızda
-            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all group-hover:w-full"></span>
-          </a>
-
-          <a href="#" className="relative group">
-            İletişim
-            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all group-hover:w-full"></span>
-          </a>
-        </div>
-
-        <button className="rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 px-5 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:opacity-90">
+        <Link
+          href="/iletisim"
+          className="hidden rounded-2xl bg-blue-500 px-6 py-3 text-base font-semibold text-white transition hover:scale-105 hover:bg-blue-600 md:inline-flex"
+        >
           Demo Talep Et
-        </button>
+        </Link>
       </div>
-    </nav>
+    </header>
   );
 }
